@@ -1,0 +1,11 @@
+{
+    "scripts": {
+        "dev": "concurrently \"npm run dev --prefix frontend\" \"npx json-server -w backend/trabalhodb.json\""
+    },
+    "dependencies": {
+        "concurrently": "^9.1.2"
+    },
+    "devDependencies": {
+        "pa11y": "^8.0.0"
+    }
+}

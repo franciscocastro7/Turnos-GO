@@ -122,27 +122,24 @@ A API expõe coleções REST (GET/POST/PATCH/DELETE) a partir de `trabalhodb.jso
 
 ## 📂 Estrutura do Projeto
 
+```text
 Turnos-GO-main/
-│
 ├── project_ipm/
-│   ├── package.json               # script "dev" com concurrently (frontend + backend)
-│   │
+│   ├── package.json              # script "dev" com concurrently (frontend + backend)
 │   ├── backend/
-│   │   ├── trabalhodb.json        # dataset + "API" json-server
+│   │   ├── trabalhodb.json       # dataset + "API" json-server
 │   │   └── package.json
-│   │
 │   └── frontend/
 │       ├── src/
-│       │   ├── views/             # páginas (Aluno/Diretor)
-│       │   ├── components/        # componentes reutilizáveis (popups, cards, sidebar, toasts)
-│       │   ├── router/            # rotas + guards
-│       │   ├── stores/            # Pinia store (auth)
-│       │   └── middlewares/       # middleware de autenticação
-│       │
-│       ├── public/                # assets públicos
+│       │   ├── views/            # páginas (Aluno/Diretor)
+│       │   ├── components/       # componentes reutilizáveis (popups, cards, sidebar, toasts)
+│       │   ├── router/           # rotas + guards
+│       │   ├── stores/           # Pinia store (auth)
+│       │   └── middlewares/      # middleware de autenticação
+│       ├── public/               # assets públicos
 │       └── package.json
-│
 └── README.md
+```
 
 ---
 
@@ -169,10 +166,3 @@ Turnos-GO-main/
 - Este projeto usa `json-server`, pelo que os dados persistem **apenas** no ficheiro JSON enquanto não for reposto.
 - Para testes, podes editar diretamente `backend/trabalhodb.json`.
 
----
-
-## 👥 Autores
-
-Grupo: *(preencher)*
-UC: Interface Pessoa-Máquina (IPM) — Universidade do Minho
-Ano letivo: 2024/2025

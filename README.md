@@ -1,81 +1,81 @@
-# 🎓 Turnos-GO — Gestão de Turnos Práticos (IPM)
+# 🎓 Turnos-GO — Practical Class Shift Management (HCI)
 
-## 📌 Visão Geral
+## 📌 Overview
 
-**Turnos-GO** é uma aplicação web para **auxiliar a Direção de Curso** na **gestão e ajuste de turnos práticos** (TP/PL) de um semestre, tendo em conta:
-- limites de capacidade (turma + sala),
-- conflitos de horário,
-- pedidos de troca de turno por alunos,
-- pedidos de alteração de sala por docentes,
-- e notificações do processo.
+**Turnos-GO** is a web application designed to **support the Degree Coordination/Program Director** in **managing and adjusting practical class shifts** (TP/PL) throughout a semester, taking into account:
+- capacity limits (shift + classroom),
+- timetable conflicts,
+- student shift-swap requests,
+- teacher classroom-change requests,
+- and process notifications.
 
-O sistema foi desenvolvido no âmbito da UC **Interface Pessoa-Máquina (IPM)** e foca-se numa experiência de utilização clara e eficiente para os dois perfis principais: **Diretor de Curso** e **Aluno**.
-
----
-
-## 🧠 Funcionalidades Principais
-
-### 👤 Autenticação e Perfis
-- Login com perfil **Diretor** ou **Aluno**
-- Proteção de rotas por tipo de utilizador (student/director)
-- Sessão persistente via `localStorage`
-
-### 🧑‍🎓 Área do Aluno
-- Consulta do **horário atribuído**
-- Consulta de **turnos disponíveis** por UC
-- **Requisição de troca de turnos** (com validações)
-- Acesso a **histórico** de pedidos e estado (pendente/aprovado/rejeitado)
-- Receção de **notificações** relevantes
-
-### 🧑‍💼 Área do Diretor de Curso
-- Painel com métricas e resumo de pedidos
-- Consulta de turnos por UC e **taxa de ocupação**
-- Gestão de **pedidos de troca** (aprovar/rejeitar/editar)
-- **Alocação manual** de alunos (com avisos de conflitos)
-- Gestão de **pedidos de mudança de sala** (quando aplicável)
-- Publicação/atualização de informação (via operações sobre os dados)
-
-### ⚠️ Conflitos e Restrições
-- Avisos de **conflitos de horário**
-- Controlo de **capacidade** por turno/sala
-- Regras especiais (ex.: estatutos), quando aplicável nos fluxos do sistema
+This project was developed for the **Human-Computer Interaction (HCI)** course, focusing on a clear and efficient user experience for two main profiles: **Program Director** and **Student**.
 
 ---
 
-## 🧰 Tecnologias
+## 🧠 Main Features
+
+### 👤 Authentication & Roles
+- Login as **Director** or **Student**
+- Route protection by user type (student/director)
+- Persistent session via `localStorage`
+
+### 🧑‍🎓 Student Area
+- View the **assigned timetable**
+- Browse **available shifts** per course
+- Submit **shift swap requests** (with validations)
+- View **request history** and status (pending/approved/rejected)
+- Receive relevant **notifications**
+
+### 🧑‍💼 Program Director Area
+- Dashboard with metrics and request overview
+- View shifts per course and **occupancy rate**
+- Manage **swap requests** (approve/reject/edit)
+- **Manual allocation** of students (with conflict warnings)
+- Manage **classroom-change requests** (when applicable)
+- Publish/update information through data operations
+
+### ⚠️ Conflicts & Constraints
+- **Schedule conflict** warnings
+- **Capacity control** per shift/classroom
+- Special rules (e.g., student status) when applicable in the system flows
+
+---
+
+## 🧰 Tech Stack
 
 ### Frontend
 - **Vue 3** + **Vite**
-- **Vue Router** (navegação e guards)
-- **Pinia** (estado de autenticação)
-- **TailwindCSS** (+ animações)
-- **Axios** (consumo da API)
+- **Vue Router** (navigation + guards)
+- **Pinia** (auth state)
+- **TailwindCSS** (+ animations)
+- **Axios** (API consumption)
 
 ### Backend (mock)
-- **json-server** (API REST a partir de `trabalhodb.json`)
+- **json-server** (REST API from `trabalhodb.json`)
 
-### Qualidade & Acessibilidade
-- **pa11y** (ferramenta de auditoria de acessibilidade — disponível no projeto)
+### Quality & Accessibility
+- **pa11y** (accessibility audit tool — included in the project)
 
 ---
 
-## ▶️ Como Executar
+## ▶️ How to Run
 
-> Requisitos: **Node.js (recomendado 18+)** e **npm**
+> Requirements: **Node.js (recommended 18+)** and **npm**
 
-### 1) Executar tudo com um comando (recomendado)
-Na pasta `project_ipm/`:
+### 1) Run everything with one command (recommended)
+From the `project_ipm/` folder:
 
 ```bash
 npm install
 npm run dev
 ```
 
-Isto levanta:
-- `json-server` (API) em `http://localhost:3000`
-- Frontend (Vite) em `http://localhost:5173` (porta típica do Vite)
+This will start:
+- `json-server` (API) at `http://localhost:3000`
+- Frontend (Vite) at `http://localhost:5173` (typical Vite port)
 
-### 2) Alternativa: executar em dois terminais
+### 2) Alternative: run in two terminals
 
 **Terminal A — API**
 ```bash
@@ -91,27 +91,27 @@ npm install
 npm run dev
 ```
 
-> Nota: o frontend usa `http://localhost:3000` como base URL (hardcoded). Se mudares a porta, atualiza o código.
+> Note: the frontend uses `http://localhost:3000` as the base URL (hardcoded). If you change the port, update the code accordingly.
 
 ---
 
-## 🔐 Credenciais de Demonstração
+## 🔐 Demo Credentials
 
-### Diretor de Curso
+### Program Director
 - **Email:** `jose@di.uminho.pt`
 - **Password:** `123`
 
-### Aluno (exemplo)
+### Student (example)
 - **Email:** `a32324@alunos.uminho.pt`
 - **Password:** `123`
 
-(Existem vários alunos no dataset em `backend/trabalhodb.json`.)
+(There are multiple students in the dataset in `backend/trabalhodb.json`.)
 
 ---
 
-## 🗃️ API (json-server) — Recursos
+## 🗃️ API (json-server) — Resources
 
-A API expõe coleções REST (GET/POST/PATCH/DELETE) a partir de `trabalhodb.json`, incluindo:
+The API exposes REST collections (GET/POST/PATCH/DELETE) from `trabalhodb.json`, including:
 - `/students`, `/directors`, `/teachers`
 - `/courses`, `/shifts`, `/allocations`
 - `/shiftRequests`, `/classroomRequests`
@@ -120,49 +120,49 @@ A API expõe coleções REST (GET/POST/PATCH/DELETE) a partir de `trabalhodb.jso
 
 ---
 
-## 📂 Estrutura do Projeto
+## 📂 Project Structure
 
 ```text
 Turnos-GO-main/
 ├── project_ipm/
-│   ├── package.json              # script "dev" com concurrently (frontend + backend)
+│   ├── package.json              # "dev" script with concurrently (frontend + backend)
 │   ├── backend/
-│   │   ├── trabalhodb.json       # dataset + "API" json-server
+│   │   ├── trabalhodb.json       # dataset + json-server "API"
 │   │   └── package.json
 │   └── frontend/
 │       ├── src/
-│       │   ├── views/            # páginas (Aluno/Diretor)
-│       │   ├── components/       # componentes reutilizáveis (popups, cards, sidebar, toasts)
-│       │   ├── router/           # rotas + guards
+│       │   ├── views/            # pages (Student/Director)
+│       │   ├── components/       # reusable components (popups, cards, sidebar, toasts)
+│       │   ├── router/           # routes + guards
 │       │   ├── stores/           # Pinia store (auth)
-│       │   └── middlewares/      # middleware de autenticação
-│       ├── public/               # assets públicos
+│       │   └── middlewares/      # authentication middleware
+│       ├── public/               # public assets
 │       └── package.json
 └── README.md
 ```
 
 ---
 
-## 🧭 Páginas Principais (Frontend)
+## 🧭 Main Pages (Frontend)
 
 - `/` — Login
-- `/students/home` — Home do aluno
-- `/students/horario` — Horário do aluno
-- `/students/requisitar-troca` — Requisitar troca
-- `/students/consultar-turnos` — Consultar turnos
-- `/students/historico-trocas` — Histórico
+- `/students/home` — Student home
+- `/students/horario` — Student timetable
+- `/students/requisitar-troca` — Request swap
+- `/students/consultar-turnos` — Browse shifts
+- `/students/historico-trocas` — History
 
-- `/directors/home` — Home do diretor
-- `/directors/consultar-turnos` — Turnos por UC
-- `/directors/consultar-turnos/:id` — Detalhe por UC
-- `/directors/pedidos-troca` — Pedidos de troca
-- `/directors/alocar-listaAlunos` — Lista de alunos para alocação
-- `/directors/alocar-aluno/:id` — Alocação individual
+- `/directors/home` — Director home
+- `/directors/consultar-turnos` — Courses/shifts
+- `/directors/consultar-turnos/:id` — Course details
+- `/directors/pedidos-troca` — Swap requests
+- `/directors/alocar-listaAlunos` — Students list (allocation)
+- `/directors/alocar-aluno/:id` — Individual allocation
 
 ---
 
-## ✍️ Notas
+## ✍️ Notes
 
-- Este projeto usa `json-server`, pelo que os dados persistem **apenas** no ficheiro JSON enquanto não for reposto.
-- Para testes, podes editar diretamente `backend/trabalhodb.json`.
+- This project uses `json-server`, so data persists **only** in the JSON file unless it is reset.
+- For testing, you can edit `backend/trabalhodb.json` directly.
 

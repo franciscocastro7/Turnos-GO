@@ -1,4 +1,4 @@
-# 🎓 Turnos-GO — Practical Class Shift Management (HCI)
+# 🎓 Turnos-GO — Practical Class Shift Management
 
 ## 📌 Overview
 
